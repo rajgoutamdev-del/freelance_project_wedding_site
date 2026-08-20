@@ -1,0 +1,27 @@
+.section {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  gap: var(--space-2xl);
+  padding: var(--space-section) var(--container-pad);
+}
+
+.imageCol {
+  flex: 1;
+  min-width: 18rem;
+  max-width: 28rem;
+}
+
+.textCol {
+  flex: 1.2;
+  min-width: 18rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.body {
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  max-width: 42ch;
+}

@@ -1,0 +1,35 @@
+.section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-section) var(--container-pad);
+  overflow: visible;
+}
+
+.text {
+  max-width: 46rem;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-display-sm);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-small);
+  text-wrap: balance;
+}
+
+.star {
+  margin: var(--space-lg) 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-text-muted);
+}
+
+.lede {
+  max-width: 34rem;
+  text-align: center;
+  font-size: var(--fs-body-lg);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}

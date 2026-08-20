@@ -1,0 +1,24 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.label {
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.value {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-body-lg);
+}

@@ -1,0 +1,30 @@
+.header {
+  padding: calc(var(--nav-height) + var(--space-xl)) var(--container-pad) var(--space-2xl);
+  max-width: 40rem;
+}
+
+.layout {
+  display: flex;
+  gap: var(--space-2xl);
+  padding: 0 var(--container-pad) var(--space-section);
+}
+
+.formCol {
+  flex: 1.4;
+}
+
+.infoCol {
+  flex: 1;
+  padding-top: var(--space-sm);
+}
+
+.marqueeWrap {
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+@media screen and (max-width: 767px) {
+  .layout {
+    flex-direction: column;
+  }
+}

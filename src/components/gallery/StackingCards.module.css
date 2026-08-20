@@ -1,0 +1,44 @@
+.list {
+  width: 100%;
+}
+
+.item {
+  position: relative;
+  height: 250vh;
+  margin-bottom: -100vh;
+  overflow: clip;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Below tablet the pinned stacking reveal degrades to a normal vertical
+   stack — sticky-pinning this tall reads awkwardly and costs scroll
+   smoothness on small viewports, so we intentionally drop it there. */
+@media screen and (max-width: 767px) {
+  .item {
+    height: auto;
+    margin-bottom: 0;
+    overflow: visible;
+  }
+
+  .item:not(:last-child) {
+    margin-bottom: var(--space-md);
+  }
+
+  .stage {
+    position: static;
+    height: auto;
+  }
+}

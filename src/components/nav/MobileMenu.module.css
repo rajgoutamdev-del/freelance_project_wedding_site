@@ -1,0 +1,58 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 950;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  background: var(--color-bg);
+  opacity: 0;
+  transform: translateY(-12px);
+  transition:
+    opacity var(--duration-base) var(--ease-premium),
+    transform var(--duration-base) var(--ease-premium);
+  pointer-events: none;
+}
+
+.overlayOpen {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.link {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(2rem, 8vw, 3rem);
+  letter-spacing: var(--tracking-medium);
+}
+
+.close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--container-pad);
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.close::before,
+.close::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+}
+
+.close::before {
+  transform: rotate(45deg);
+}
+
+.close::after {
+  transform: rotate(-45deg);
+}

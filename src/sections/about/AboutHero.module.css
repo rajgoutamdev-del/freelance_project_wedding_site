@@ -1,0 +1,32 @@
+.hero {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xl);
+  padding: calc(var(--nav-height) + var(--space-2xl)) var(--container-pad) var(--space-section);
+}
+
+.textCol {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.heading {
+  max-width: 22ch;
+}
+
+.imageCol {
+  flex: 1;
+  max-width: 26rem;
+}
+
+@media screen and (max-width: 767px) {
+  .hero {
+    flex-direction: column-reverse;
+  }
+
+  .imageCol {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,137 @@
+.header {
+  padding: calc(var(--nav-height) + var(--space-xl)) var(--container-pad) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.heading {
+  max-width: 40rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  padding: 0 var(--container-pad) var(--space-section);
+}
+
+.empty {
+  padding: var(--space-2xl) var(--container-pad);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* Category-switch cinematic sequence — GPU-only (opacity/transform).
+   Exit is a single unified block fade; entrance staggers per card. */
+@keyframes galleryExit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.985);
+  }
+}
+
+@keyframes galleryCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.grid[data-phase='idle'] {
+  opacity: 1;
+}
+
+.grid[data-phase='exiting'] {
+  animation: galleryExit 380ms var(--ease-premium) forwards;
+  pointer-events: none;
+}
+
+.grid[data-phase='label'] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.grid[data-phase='entering'] {
+  opacity: 1;
+  pointer-events: none;
+}
+
+.grid[data-phase='entering'] > * {
+  animation: galleryCardEnter 520ms var(--ease-premium) both;
+  animation-delay: var(--stagger-delay, 0ms);
+}
+
+.cardWrap {
+  min-width: 0;
+}
+
+.categoryOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--container-pad);
+  background: var(--color-bg);
+  pointer-events: none;
+}
+
+.categoryOverlayText {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: var(--fs-display-lg);
+  letter-spacing: var(--tracking-big);
+  text-align: center;
+  text-wrap: balance;
+  /* 320ms in / 480ms hold / 320ms out, over a 1120ms total — kept in sync
+     with LABEL_IN_MS/LABEL_HOLD_MS/LABEL_OUT_MS in useCategoryTransition.ts */
+  animation: categoryLabelSequence 1120ms var(--ease-premium) both;
+}
+
+@keyframes categoryLabelSequence {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.96);
+  }
+  28.6% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  71.4% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-22px) scale(0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid[data-phase='entering'] > * {
+    animation: none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

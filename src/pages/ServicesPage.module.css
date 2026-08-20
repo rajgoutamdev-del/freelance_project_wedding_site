@@ -1,0 +1,4 @@
+.header {
+  padding: calc(var(--nav-height) + var(--space-xl)) var(--container-pad) var(--space-xl);
+  max-width: 40rem;
+}

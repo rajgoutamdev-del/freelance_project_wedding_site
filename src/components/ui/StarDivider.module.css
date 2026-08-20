@@ -1,0 +1,20 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-text);
+}
+
+.star {
+  flex-shrink: 0;
+  width: 0.8rem;
+  height: 0.8rem;
+  opacity: 0.85;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  min-width: 1.5rem;
+  background: var(--color-border-soft);
+}

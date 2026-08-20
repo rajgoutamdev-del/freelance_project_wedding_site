@@ -1,0 +1,17 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  min-height: 80vh;
+  padding: var(--container-pad);
+  text-align: center;
+}
+
+.code {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-display-xl);
+  letter-spacing: var(--tracking-huge);
+}

@@ -1,0 +1,44 @@
+.heading {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: var(--tracking-big);
+  text-wrap: balance;
+  margin: 0;
+}
+
+.heading em {
+  font-style: italic;
+}
+
+.xl {
+  font-size: var(--fs-display-xl);
+}
+
+.lg {
+  font-size: var(--fs-display-lg);
+}
+
+.md {
+  font-size: var(--fs-display-md);
+}
+
+.sm {
+  font-size: var(--fs-display-sm);
+}
+
+.center {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
