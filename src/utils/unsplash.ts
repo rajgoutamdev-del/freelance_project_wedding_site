@@ -1,13 +1,13 @@
 /**
  * Curated pool of verified, freely-licensed Unsplash photo ids (luxury wedding /
- * floral / event aesthetic) used as placeholder imagery. Unsplash serves
- * correctly-sized images on the fly via query params, so we never ship
- * oversized assets — each caller asks for the exact width it needs.
+ * floral / event aesthetic) used as placeholder imagery. Images are downloaded
+ * once into public/images/ and served locally instead of hotlinking Unsplash's
+ * CDN, so the site keeps working for visitors whose network/browser blocks it.
  */
-const BASE = 'https://images.unsplash.com/photo-';
+const BASE = '/images/';
 
-export function unsplashUrl(id: string, width: number, quality = 75): string {
-  return `${BASE}${id}?auto=format&fit=crop&w=${width}&q=${quality}`;
+export function unsplashUrl(id: string, _width?: number, _quality?: number): string {
+  return `${BASE}${id}.jpg`;
 }
 
 export function unsplashSrcSet(id: string, widths: number[]): string {
